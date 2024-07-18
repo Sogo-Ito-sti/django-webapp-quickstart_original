@@ -1,3 +1,4 @@
 Django
 whitenoise
 mysqlclient
+python-jose[cryptography]
