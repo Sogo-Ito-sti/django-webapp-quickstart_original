@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
-from .utils import decode_id_token
+from hello_azure.utils import decode_id_token
 
 def index(request):
     # Azure から提供されるヘッダーから ID トークンを取得
