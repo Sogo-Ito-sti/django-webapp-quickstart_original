@@ -1,19 +1,14 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
-#from jose import jwt
-
-#def decode_id_token(id_token):
-#    decoded_token = jwt.decode(id_token, options={"verify_signature": False})
-#   user_id = decoded_token.get('sub')
-#    return user_id
+from .utils import decode_id_token
 
 def index(request):
     # Azure から提供されるヘッダーから ID トークンを取得
     id_token = request.META.get('HTTP_X_MS_TOKEN_GOOGLE_ID_TOKEN')
     if id_token:
-        user_id = id_token
-        # user_id = decode_id_token(id_token)
+        # user_id = id_token
+        user_id = decode_id_token(id_token)
     else:
         user_id = 'None'
         
