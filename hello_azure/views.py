@@ -13,10 +13,10 @@ def index(request):
     id_token = request.META.get('HTTP_X_MS_TOKEN_GOOGLE_ID_TOKEN')
     if id_token:
         user_id = decode_id_token(id_token)
-        context = {'user_id': user_id}
     else:
-        context = {'user_id': 'None'}
-      
+        user_id = 'None'
+        
+    context = {'user_id': user_id}
     print('Request for index page received')
     return render(request, 'hello_azure/index.html', context)
 
