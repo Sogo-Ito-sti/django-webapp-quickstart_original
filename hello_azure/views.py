@@ -15,7 +15,7 @@ def index(request):
         user_id = decode_id_token(id_token)
         context = {'user_id': user_id}
     else:
-        context = {'error': 'ID Token not found'}
+        context = {'user_id': 'None'}
       
     print('Request for index page received')
     return render(request, 'hello_azure/index.html', context)
